@@ -1,0 +1,23 @@
+name: Deployment
+on:
+  push:
+    branches:
+      - main
+      - dev
+env:
+  JWT_SECRET: fakeJwtToken
+jobs:
+  test:
+    environment: testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print env
+        run: echo {{ $JWT_SECRET }}
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+        run: |
+          echo "..."
