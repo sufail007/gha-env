@@ -2,17 +2,20 @@ name: Deployment
 on:
   push:
     branches:
-      - main
+      - master
       - dev
 env:
   JWT_SECRET: fakeJwtToken
+  PORT: 3000
 jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Print env
-        run: echo {{ $JWT_SECRET }}
+        run: echo "$JWT_SECRET"
+        run: echo "${{env.PORT}}"
+
 
   deploy:
     needs: test
