@@ -12,10 +12,10 @@ jobs:
     environment: testing
     runs-on: ubuntu-latest
     steps:
-      - name: Print env
+      - name: Print Jwt Secret
         run: echo "$JWT_SECRET"
+      - name: Print Port
         run: echo "${{env.PORT}}"
-
 
   deploy:
     needs: test
