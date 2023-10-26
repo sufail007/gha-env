@@ -16,6 +16,8 @@ jobs:
         run: echo "$JWT_SECRET"
       - name: Print Port
         run: echo "${{env.PORT}}"
+      - name: Print secret variable
+        run: echo "${{ secret.MUI_MUI }}"
 
   deploy:
     needs: test
